@@ -2,11 +2,11 @@
 
 <p align="center">
 
-![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas)
-![NumPy](https://img.shields.io/badge/NumPy-Numerical%20Computing-013243?style=for-the-badge&logo=numpy)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-F7931E?style=for-the-badge&logo=scikitlearn)
-![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+<img src="https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python">
+<img src="https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas">
+<img src="https://img.shields.io/badge/NumPy-Numerical%20Computing-013243?style=for-the-badge&logo=numpy">
+<img src="https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-F7931E?style=for-the-badge&logo=scikitlearn">
+<img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge">
 
 </p>
 
@@ -22,87 +22,86 @@
 
 ---
 
-# 📖 Project Overview
+# 📖 Overview
 
-This project is the **second task** of my Machine Learning Internship at **Saiket Systems**.
+This project is the second task of my **Machine Learning Internship at Saiket Systems**.
 
-The objective of this project is to prepare a machine learning dataset by dividing it into **Training** and **Testing** subsets using Scikit-learn's **train_test_split()** function.
+The objective of this project is to divide a cleaned dataset into **Training (80%)** and **Testing (20%)** datasets using Scikit-learn's **train_test_split()** function.
 
-A proper train-test split is one of the most important stages in the Machine Learning pipeline because it enables models to learn from one portion of the data while evaluating their performance on completely unseen data.
-
-This approach helps build reliable, unbiased, and generalizable Machine Learning models.
+A proper train-test split is one of the most important stages in the Machine Learning workflow because it allows the model to learn from one dataset while evaluating its performance on completely unseen data.
 
 ---
 
 # 🎯 Objectives
 
-✔ Load the cleaned Telco Customer Churn dataset
-
-✔ Separate Features (X) and Target (y)
-
-✔ Perform an 80:20 Train-Test Split
-
-✔ Maintain class balance using Stratified Sampling
-
-✔ Ensure reproducible results using Random State
-
-✔ Save all generated datasets
+- Load the cleaned Telco Customer Churn Dataset
+- Separate Features (X) and Target Variable (y)
+- Split the dataset into Training and Testing sets
+- Maintain class balance using Stratified Sampling
+- Save the generated datasets for future model training
 
 ---
 
 # 🖼 Project Workflow
 
-> Add your generated workflow image here.
+> The complete workflow of the Train-Test Split process.
 
-```md
-![Workflow](images/workflow.png)
-```
+<p align="center">
+<img src="images/workflow.png" width="900">
+</p>
 
 ---
 
 # 📸 Project Screenshots
 
-## 💻 Python Implementation
+## 💻 Python Code
 
-```md
-![Code](images/code.png)
-```
+<p align="center">
+<img src="images/code.png" width="900">
+</p>
 
 ---
 
 ## 🖥 Program Output
 
-```md
-![Output](images/output.png)
-```
+<p align="center">
+<img src="images/output.png" width="900">
+</p>
 
 ---
 
 # 📂 Dataset Information
 
-**Dataset Name**
+**Dataset:** Telco Customer Churn Dataset
 
-Telco Customer Churn Dataset
+This dataset contains customer information collected from a telecommunications company.
 
-The dataset contains customer information including
+### Features include
 
-- Demographics
-- Services subscribed
-- Contract Information
-- Payment Details
+- Gender
+- Partner
+- Dependents
+- Internet Service
 - Monthly Charges
-- Customer Churn Status
+- Contract
+- Payment Method
+- Tenure
+- Senior Citizen
+- Online Security
+- Streaming Services
+- Device Protection
+- Tech Support
 
-### Target Variable
+### 🎯 Target Variable
 
-| Value | Meaning |
-|--------|----------|
+| Value | Description |
+|-------|-------------|
 | 1 | Customer Churned |
 | 0 | Customer Stayed |
 
 ---
 
-# ⚙ Technologies Used
+# 🛠 Technologies Used
 
 - Python
 - Pandas
@@ -123,111 +122,90 @@ from sklearn.model_selection import train_test_split
 # 🔄 Machine Learning Pipeline
 
 ```text
-Load Dataset
-      │
-      ▼
+Load Clean Dataset
+        │
+        ▼
 Separate Features (X)
-      │
-      ▼
+        │
+        ▼
 Separate Target (y)
-      │
-      ▼
+        │
+        ▼
 Train-Test Split
-      │
- ┌────┴────┐
- │         │
- ▼         ▼
-Train     Test
-80%       20%
-      │
-      ▼
-Ready for Model Training
+(test_size = 0.20)
+(random_state = 42)
+(stratify = y)
+        │
+ ┌──────┴────────┐
+ │               │
+ ▼               ▼
+Training      Testing
+80%             20%
+ │               │
+ └──────┬────────┘
+        ▼
+Ready for Machine Learning Model
 ```
 
 ---
 
-# ⚙️ Project Workflow
+# ⚙️ Workflow Explanation
 
-## Step 1 — Load Dataset
+## Step 1 – Load Dataset
 
-The cleaned dataset generated in **Task 01** is loaded using Pandas.
-
----
-
-## Step 2 — Explore Dataset
-
-Dataset inspection includes:
-
-- Shape
-- Number of Columns
-- Number of Rows
-- Preview
-- Data Types
+Load the cleaned dataset generated during Task 01 using the Pandas library.
 
 ---
 
-## Step 3 — Feature & Target Separation
+## Step 2 – Explore Dataset
+
+Inspect the dataset by checking:
+
+- Number of rows
+- Number of columns
+- Dataset preview
+- Feature count
+
+---
+
+## Step 3 – Separate Features and Target
 
 ### Features (X)
 
-All independent variables used for prediction.
-
-Example
-
-- Gender
-- Partner
-- Dependents
-- Tenure
-- Internet Service
-- Contract
+Independent variables used for prediction.
 
 ### Target (y)
 
-Customer Churn
+The **Churn** column, which is the value to be predicted by the machine learning model.
 
 ---
 
-## Step 4 — Train-Test Split
+## Step 4 – Split the Dataset
 
 ```python
-train_test_split(
-X,
-y,
-test_size=0.20,
-random_state=42,
-stratify=y
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.20,
+    random_state=42,
+    stratify=y
 )
 ```
 
----
+### Parameter Explanation
 
-# 📌 Parameter Explanation
+### test_size = 0.20
 
-## test_size = 0.20
+- 80% Training Dataset
+- 20% Testing Dataset
 
-20% data is reserved for testing.
+### random_state = 42
 
-Remaining 80% is used for training.
+Ensures reproducible results by producing the same split every time the program runs.
 
----
+### stratify = y
 
-## random_state = 42
-
-Ensures reproducible dataset splitting.
-
-Every execution generates the same split.
-
----
-
-## stratify = y
-
-Maintains equal class distribution in
-
-Training Dataset
-
-and
-
-Testing Dataset
+Maintains the same class distribution in both training and testing datasets.
 
 ---
 
@@ -235,25 +213,23 @@ Testing Dataset
 
 | Dataset | Shape |
 |---------|--------|
-| X_train | (5634,19) |
-| X_test | (1409,19) |
+| X_train | (5634, 19) |
+| X_test | (1409, 19) |
 | y_train | (5634,) |
 | y_test | (1409,) |
 
-Generated Files
+Generated Files:
 
-```
-X_train.csv
-X_test.csv
-y_train.csv
-y_test.csv
-```
+- X_train.csv
+- X_test.csv
+- y_train.csv
+- y_test.csv
 
 ---
 
 # 📁 Project Structure
 
-```
+```text
 Task-02/
 │
 ├── images/
@@ -272,10 +248,10 @@ Task-02/
 
 ---
 
-# ▶ Installation
+# ▶️ Installation
 
 ```bash
-git clone https://github.com/yourusername/Task-02.git
+git clone https://github.com/YourUsername/Task-02.git
 
 cd Task-02
 
@@ -284,7 +260,7 @@ pip install pandas numpy scikit-learn
 
 ---
 
-# ▶ Run
+# ▶️ Run the Project
 
 ```bash
 python task-02.py
@@ -294,20 +270,17 @@ python task-02.py
 
 # ✅ Expected Output
 
-```
+```text
 Dataset loaded successfully!
 
 Training Features : (5634, 19)
+Testing Features  : (1409, 19)
 
-Testing Features : (1409, 19)
+Training Labels   : (5634,)
+Testing Labels    : (1409,)
 
-Training Labels : (5634,)
-
-Testing Labels : (1409,)
-
-Training Data : 80%
-
-Testing Data : 20%
+Training Data Percentage : 80%
+Testing Data Percentage  : 20%
 
 Task Completed Successfully
 ```
@@ -318,79 +291,58 @@ Task Completed Successfully
 
 A Machine Learning model should never be evaluated using the same data on which it was trained.
 
-Splitting the dataset allows us to
+Using a Train-Test Split helps to:
 
-- Evaluate model performance fairly
-
-- Reduce Overfitting
-
+- Prevent Overfitting
+- Measure Real-world Performance
 - Improve Generalization
-
-- Build Reliable Models
+- Build Reliable Machine Learning Models
 
 ---
 
 # 🚀 Skills Demonstrated
 
 - Python Programming
-
 - Data Analysis
-
 - Data Preparation
-
 - Pandas
-
 - NumPy
-
 - Scikit-learn
-
 - Feature Engineering
-
-- Train-Test Splitting
-
+- Train-Test Split
 - Stratified Sampling
-
 - Machine Learning Workflow
 
 ---
 
 # 📚 Learning Outcomes
 
-After completing this project, I learned
+Through this project, I learned:
 
-- How Machine Learning datasets are divided
-
-- Importance of Training and Testing datasets
-
-- Feature & Target separation
-
+- Feature and Target Separation
+- Data Splitting Methodology
+- Importance of Training and Testing Datasets
 - Reproducibility using random_state
-
-- Balanced data splitting using stratify
-
+- Maintaining Balanced Classes using stratify
 - Preparing datasets for Machine Learning models
 
 ---
 
 # 🚀 Future Scope
 
-The generated datasets will be used in upcoming tasks to
+The generated datasets will be used in upcoming tasks for:
 
-- Train Machine Learning Models
-
-- Evaluate Performance
-
-- Compare Algorithms
-
-- Predict Customer Churn
+- Model Training
+- Model Evaluation
+- Classification Algorithms
+- Customer Churn Prediction
+- Performance Comparison
 
 ---
 
 # 🙏 Acknowledgement
 
-This project was completed as **Task 02** during my **Machine Learning Internship at Saiket Systems**.
-
-It enhanced my understanding of data preparation and the importance of proper dataset splitting before model development.
+This project was completed as **Task 02** during my **Machine Learning Internship at Saiket Systems**. It provided valuable hands-on experience in one of the most fundamental stages of the Machine Learning pipeline.
 
 ---
 
@@ -398,12 +350,15 @@ It enhanced my understanding of data preparation and the importance of proper da
 
 **Shaikh Danish**
 
-Machine Learning Intern — Saiket Systems
+Machine Learning Intern | AI & ML Enthusiast
 
-GitHub: https://github.com/YourUsername
-
-LinkedIn: https://linkedin.com/in/YourProfile
+- 🌐 GitHub: https://github.com/YourUsername
+- 💼 LinkedIn: https://linkedin.com/in/YourProfile
 
 ---
 
-⭐ **If you found this project helpful, don't forget to Star this repository!**
+<p align="center">
+
+⭐ If you found this project useful, consider giving it a **Star** on GitHub!
+
+</p>
