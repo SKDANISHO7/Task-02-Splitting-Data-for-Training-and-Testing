@@ -1,46 +1,113 @@
 # 📊 Task 02 – Split Data for Training and Testing
 
-> **Machine Learning Internship Project – Saiket Systems**
+<p align="center">
 
-## 📌 Overview
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas)
+![NumPy](https://img.shields.io/badge/NumPy-Numerical%20Computing-013243?style=for-the-badge&logo=numpy)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-F7931E?style=for-the-badge&logo=scikitlearn)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 
-This project is the second task of my **Machine Learning Internship at Saiket Systems**. The primary objective of this task is to divide a preprocessed dataset into **training** and **testing** subsets, which is a fundamental step in the machine learning workflow.
+</p>
 
-A proper train-test split ensures that a machine learning model learns from one portion of the data and is evaluated on completely unseen data, allowing us to measure its real-world performance.
+---
+
+# 📌 Machine Learning Internship Project
+
+**Organization:** Saiket Systems
+
+**Role:** Machine Learning Intern
+
+**Task:** Task 02 – Split Data for Training and Testing
+
+---
+
+# 📖 Project Overview
+
+This project is the **second task** of my Machine Learning Internship at **Saiket Systems**.
+
+The objective of this project is to prepare a machine learning dataset by dividing it into **Training** and **Testing** subsets using Scikit-learn's **train_test_split()** function.
+
+A proper train-test split is one of the most important stages in the Machine Learning pipeline because it enables models to learn from one portion of the data while evaluating their performance on completely unseen data.
+
+This approach helps build reliable, unbiased, and generalizable Machine Learning models.
 
 ---
 
 # 🎯 Objectives
 
-* Load the cleaned Telco Customer Churn dataset.
-* Separate the dataset into **features (X)** and **target variable (y)**.
-* Split the dataset into **80% training** and **20% testing** sets.
-* Preserve the class distribution using stratified sampling.
-* Save the generated datasets for future model training and evaluation.
+✔ Load the cleaned Telco Customer Churn dataset
+
+✔ Separate Features (X) and Target (y)
+
+✔ Perform an 80:20 Train-Test Split
+
+✔ Maintain class balance using Stratified Sampling
+
+✔ Ensure reproducible results using Random State
+
+✔ Save all generated datasets
+
+---
+
+# 🖼 Project Workflow
+
+> Add your generated workflow image here.
+
+```md
+![Workflow](images/workflow.png)
+```
+
+---
+
+# 📸 Project Screenshots
+
+## 💻 Python Implementation
+
+```md
+![Code](images/code.png)
+```
+
+---
+
+## 🖥 Program Output
+
+```md
+![Output](images/output.png)
+```
 
 ---
 
 # 📂 Dataset Information
 
-**Dataset Name:** Telco Customer Churn Dataset
+**Dataset Name**
 
-The dataset contains customer information from a telecommunications company, including demographic details, subscribed services, billing information, and customer churn status.
+Telco Customer Churn Dataset
+
+The dataset contains customer information including
+
+- Demographics
+- Services subscribed
+- Contract Information
+- Payment Details
+- Monthly Charges
+- Customer Churn Status
 
 ### Target Variable
 
-**Churn**
-
-* **1** → Customer has churned.
-* **0** → Customer has not churned.
+| Value | Meaning |
+|--------|----------|
+| 1 | Customer Churned |
+| 0 | Customer Stayed |
 
 ---
 
-# 🛠️ Technologies Used
+# ⚙ Technologies Used
 
-* Python 3
-* Pandas
-* NumPy
-* Scikit-learn
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
 
 ---
 
@@ -53,105 +120,146 @@ from sklearn.model_selection import train_test_split
 
 ---
 
+# 🔄 Machine Learning Pipeline
+
+```text
+Load Dataset
+      │
+      ▼
+Separate Features (X)
+      │
+      ▼
+Separate Target (y)
+      │
+      ▼
+Train-Test Split
+      │
+ ┌────┴────┐
+ │         │
+ ▼         ▼
+Train     Test
+80%       20%
+      │
+      ▼
+Ready for Model Training
+```
+
+---
+
 # ⚙️ Project Workflow
 
-## Step 1 – Load the Dataset
+## Step 1 — Load Dataset
 
-The cleaned dataset generated during Task 01 is loaded using the Pandas library.
-
----
-
-## Step 2 – Explore the Dataset
-
-Basic dataset information is displayed, including:
-
-* Number of rows
-* Number of columns
-* Dataset preview
-* Feature count
+The cleaned dataset generated in **Task 01** is loaded using Pandas.
 
 ---
 
-## Step 3 – Separate Features and Target
+## Step 2 — Explore Dataset
 
-The dataset is divided into:
+Dataset inspection includes:
+
+- Shape
+- Number of Columns
+- Number of Rows
+- Preview
+- Data Types
+
+---
+
+## Step 3 — Feature & Target Separation
 
 ### Features (X)
 
-Independent variables used by the model for prediction.
+All independent variables used for prediction.
 
-Examples:
+Example
 
-* Gender
-* Partner
-* Tenure
-* MonthlyCharges
-* InternetService
-* Contract
+- Gender
+- Partner
+- Dependents
+- Tenure
+- Internet Service
+- Contract
 
 ### Target (y)
 
-The dependent variable:
-
-**Churn**
-
-This is the value that the machine learning model will predict.
+Customer Churn
 
 ---
 
-## Step 4 – Train-Test Split
-
-The dataset is divided using Scikit-learn's `train_test_split()` function.
+## Step 4 — Train-Test Split
 
 ```python
 train_test_split(
-    X,
-    y,
-    test_size=0.20,
-    random_state=42,
-    stratify=y
+X,
+y,
+test_size=0.20,
+random_state=42,
+stratify=y
 )
 ```
 
-### Parameters
+---
 
-### `test_size = 0.20`
+# 📌 Parameter Explanation
 
-* 80% → Training Dataset
-* 20% → Testing Dataset
+## test_size = 0.20
 
-### `random_state = 42`
+20% data is reserved for testing.
 
-Ensures reproducible results by generating the same split every time the program is executed.
+Remaining 80% is used for training.
 
-### `stratify = y`
+---
 
-Maintains the same class distribution in both training and testing datasets, preventing class imbalance.
+## random_state = 42
+
+Ensures reproducible dataset splitting.
+
+Every execution generates the same split.
+
+---
+
+## stratify = y
+
+Maintains equal class distribution in
+
+Training Dataset
+
+and
+
+Testing Dataset
 
 ---
 
 # 📊 Output
 
-After executing the program, the dataset is divided into:
+| Dataset | Shape |
+|---------|--------|
+| X_train | (5634,19) |
+| X_test | (1409,19) |
+| y_train | (5634,) |
+| y_test | (1409,) |
 
-| Dataset          | Records |
-| ---------------- | ------: |
-| Training Dataset |    5634 |
-| Testing Dataset  |    1409 |
+Generated Files
 
-Generated files:
-
-* X_train.csv
-* X_test.csv
-* y_train.csv
-* y_test.csv
+```
+X_train.csv
+X_test.csv
+y_train.csv
+y_test.csv
+```
 
 ---
 
 # 📁 Project Structure
 
-```text
+```
 Task-02/
+│
+├── images/
+│   ├── workflow.png
+│   ├── code.png
+│   └── output.png
 │
 ├── task-02.py
 ├── README.md
@@ -164,29 +272,19 @@ Task-02/
 
 ---
 
-# ▶️ Installation
-
-Clone the repository:
+# ▶ Installation
 
 ```bash
-git clone https://github.com/your-username/your-repository-name.git
-```
+git clone https://github.com/yourusername/Task-02.git
 
-Move into the project folder:
-
-```bash
 cd Task-02
-```
 
-Install the required dependencies:
-
-```bash
 pip install pandas numpy scikit-learn
 ```
 
 ---
 
-# ▶️ Run the Project
+# ▶ Run
 
 ```bash
 python task-02.py
@@ -200,55 +298,112 @@ python task-02.py
 Dataset loaded successfully!
 
 Training Features : (5634, 19)
-Testing Features  : (1409, 19)
 
-Training Labels   : (5634,)
-Testing Labels    : (1409,)
+Testing Features : (1409, 19)
 
-Training Data Percentage : 80%
-Testing Data Percentage  : 20%
+Training Labels : (5634,)
+
+Testing Labels : (1409,)
+
+Training Data : 80%
+
+Testing Data : 20%
 
 Task Completed Successfully
 ```
 
 ---
 
-# 💡 Key Concepts Learned
+# 💡 Why Train-Test Split?
 
-* Machine Learning Data Pipeline
-* Feature and Target Separation
-* Train-Test Splitting
-* Stratified Sampling
-* Data Preparation
-* Reproducible Experiments
-* Scikit-learn Workflow
+A Machine Learning model should never be evaluated using the same data on which it was trained.
+
+Splitting the dataset allows us to
+
+- Evaluate model performance fairly
+
+- Reduce Overfitting
+
+- Improve Generalization
+
+- Build Reliable Models
 
 ---
 
 # 🚀 Skills Demonstrated
 
-* Python Programming
-* Data Analysis
-* Data Preparation
-* Pandas
-* NumPy
-* Scikit-learn
-* Machine Learning Fundamentals
-* Train-Test Split
-* Data Handling
+- Python Programming
+
+- Data Analysis
+
+- Data Preparation
+
+- Pandas
+
+- NumPy
+
+- Scikit-learn
+
+- Feature Engineering
+
+- Train-Test Splitting
+
+- Stratified Sampling
+
+- Machine Learning Workflow
 
 ---
 
-# 📖 Learning Outcome
+# 📚 Learning Outcomes
 
-By completing this project, I gained practical experience in preparing datasets for machine learning by implementing a standard train-test split strategy. I also learned the importance of maintaining class balance using stratified sampling and ensuring reproducibility using a fixed random state. These are essential practices for building reliable and unbiased machine learning models.
+After completing this project, I learned
+
+- How Machine Learning datasets are divided
+
+- Importance of Training and Testing datasets
+
+- Feature & Target separation
+
+- Reproducibility using random_state
+
+- Balanced data splitting using stratify
+
+- Preparing datasets for Machine Learning models
+
+---
+
+# 🚀 Future Scope
+
+The generated datasets will be used in upcoming tasks to
+
+- Train Machine Learning Models
+
+- Evaluate Performance
+
+- Compare Algorithms
+
+- Predict Customer Churn
 
 ---
 
 # 🙏 Acknowledgement
 
-This project was completed as **Task 02** during my **Machine Learning Internship at Saiket Systems**. It provided valuable hands-on experience in one of the core stages of the machine learning pipeline and strengthened my understanding of data preparation for model development.
+This project was completed as **Task 02** during my **Machine Learning Internship at Saiket Systems**.
+
+It enhanced my understanding of data preparation and the importance of proper dataset splitting before model development.
 
 ---
 
-## ⭐ If you found this project useful, consider giving this repository a **Star** and feel free to explore my other machine learning internship projects.
+# 👨‍💻 Author
+
+**Shaikh Danish**
+
+Machine Learning Intern — Saiket Systems
+
+GitHub: https://github.com/YourUsername
+
+LinkedIn: https://linkedin.com/in/YourProfile
+
+---
+
+⭐ **If you found this project helpful, don't forget to Star this repository!**
